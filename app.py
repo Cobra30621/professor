@@ -23,8 +23,8 @@ import corwler
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('qxQIS8TTitqfZkp4+wuHQCe+pEWKskFrxr/jRB8mRMjaEr5EHgZKKwWC1MX+UUy6sbqD1Gbr299QTpplU3idbEBBTGs/LQZGG6dHCUnvK7Fs8my2hCIwYPlw92p/W+Vs97wZQQASgXsVT6/oADxNNQdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('258c64afe44ab5ed8e041a75f88fcf27')
+line_bot_api = LineBotApi('dCdBEwGwdWUxethKTVf5nZX8CMpaY7zU0k44dvBp9V8S6iacj3LZWUSx9DG0WuXxbGBaU6I5QjoOilzZ1WOeiuF4vQY0nzbzSyhoGh/UE3uUD7HBW6b3JUu2mWAp2s/i+dLBcv2e/eGasmUYYOwRAgdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('43f859131a0ee481594c57358b4d330e')
 
 
 
