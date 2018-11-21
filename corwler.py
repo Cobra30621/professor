@@ -139,6 +139,8 @@ def theNewLens(newType):
 
     return cards
 
+
+
 def fb():
     '''
     搜尋關鍵評論網（theNewLens）的科學文章，做成字卡
