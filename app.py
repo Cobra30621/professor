@@ -170,7 +170,7 @@ def handle_message(event):
     if re.search('特殊能力', event.message.text, re.IGNORECASE):
 
         image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
-        title = ['APCS實作題成績：第三級','','']
+        title = ['APCS實作題成績：第三級','扯鈴表演','巴哈姆特寫小說心得文']
         text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','','']
         label = ['點我','點我','點我']
         link = ['https://www.google.com','https://www.google.com','https://www.google.com']
@@ -184,7 +184,7 @@ def handle_message(event):
     if re.search('推薦課程與展覽', event.message.text, re.IGNORECASE):
 
         image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
-        title = ['APCS實作題成績：第三級','','']
+        title = ['APCS實作題成績：第三級','ㄅ','1']
         text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','','']
         label = ['點我','點我','點我']
         link = ['https://www.google.com','https://www.google.com','https://www.google.com']
