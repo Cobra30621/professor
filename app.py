@@ -96,7 +96,31 @@ def makeCard(dic, event):
     
     
     line_bot_api.reply_message(event.reply_token, remessage)      
-        
+
+def makeCard2(image, title, text, label, link, event):
+
+    columns = []
+    for i in range(3):
+        carousel = CarouselColumn(
+                    thumbnail_image_url = image[i],
+                    title = title[i],
+                    text = text[i],
+                    actions=[
+                        URITemplateAction(
+                            label = label[i],
+                            uri = link[i]
+                          )
+                        ]
+                    )
+        columns.append(carousel)
+    
+    remessage = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(columns=columns)
+                )
+    
+    
+    line_bot_api.reply_message(event.reply_token, remessage)         
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -141,61 +165,46 @@ def handle_message(event):
         TextSendMessage(text=event.message.text))
         
         return 0 
-#關鍵評論網
-            
-    if re.search('theNewLens', event.message.text, re.IGNORECASE):
-     
-        columns = []
-        img = 'https://image3.thenewslens.com/assets/web/cover-photo-medium.png'
+#特殊能力
 
-        carousel = CarouselColumn(
-                    thumbnail_image_url = img,
-                    title = '關鍵評論網新聞',
-                    text = '點擊觀看類型',
-                    actions=[
-                        MessageTemplateAction(
-                            label='科學',
-                            text='關鍵評論科學'
-                           ),
-                        MessageTemplateAction(
-                            label='商業',
-                            text='關鍵評論商業'
-                           ),
-                        MessageTemplateAction(
-                            label='職場',
-                            text='關鍵評論職場'
-                           )
-                         ]
-                     )
-        columns.append(carousel)
-        
-        remessage = TemplateSendMessage(
-                    alt_text='Carousel template',
-                    template=CarouselTemplate(columns=columns)
-                    )
+    if re.search('特殊能力', event.message.text, re.IGNORECASE):
+
+        image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
+        title = ['APCS實作題成績：第三級','','']
+        text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','','']
+        label = ['點我','點我','點我']
+        link = ['https://www.google.com','https://www.google.com','https://www.google.com']
         
         
-        line_bot_api.reply_message(event.reply_token, remessage)
-        return 0         
-            
-    
-    
-    if re.search('關鍵評論科學', event.message.text, re.IGNORECASE):
-        dic = corwler.theNewLens('science')
-        
-        makeCard(dic, event)
+        makeCard2(image, title, text, label, link, event)
         return 0 
-    
-    if re.search('關鍵評論商業', event.message.text, re.IGNORECASE):
-        dic = corwler.theNewLens('business')
+
+#推薦課程與展覽
+
+    if re.search('推薦課程與展覽', event.message.text, re.IGNORECASE):
+
+        image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
+        title = ['APCS實作題成績：第三級','','']
+        text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','','']
+        label = ['點我','點我','點我']
+        link = ['https://www.google.com','https://www.google.com','https://www.google.com']
         
-        makeCard(dic, event)
+        
+        makeCard2(image, title, text, label, link, event)
         return 0 
-    
-    if re.search('關鍵評論職場', event.message.text, re.IGNORECASE):
-        dic = corwler.theNewLens('career')
+
+#介紹自己
+
+    if re.search('介紹自己', event.message.text, re.IGNORECASE):
+
+        image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
+        title = ['APCS實作題成績：第三級','','']
+        text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','','']
+        label = ['點我','點我','點我']
+        link = ['https://www.google.com','https://www.google.com','https://www.google.com']
         
-        makeCard(dic, event)
+        
+        makeCard2(image, title, text, label, link, event)
         return 0 
 
 #科技報橘
