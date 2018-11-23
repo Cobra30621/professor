@@ -169,11 +169,11 @@ def handle_message(event):
 
     if re.search('特殊能力', event.message.text, re.IGNORECASE):
 
-        image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
+        image = ['https://upload.cc/i1/2018/11/23/GATLzw.png','https://upload.cc/i1/2018/11/23/FZoufH.png','https://i2.bahamut.com.tw/bahaLOGO_1200x630.jpg']
         title = ['APCS實作題成績：第三級','扯鈴表演','巴哈姆特寫小說心得文']
         text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','國小為扯鈴社社長，畢業後以校友的身份進行扯鈴教學、表演。','閱讀超過2000本小說，並常於巴哈姆特寫小說推薦文。']
         label = ['成績證明','表演影片','我的小屋']
-        link = ['https://upload.cc/i1/2018/11/23/lhXGLv.png','https://www.google.com','https://home.gamer.com.tw/creation.php?owner=s10530032']
+        link = ['https://upload.cc/i1/2018/11/23/lhXGLv.png','https://www.youtube.com/watch?v=pXNms9UxV9k','https://home.gamer.com.tw/creation.php?owner=s10530032']
         
         
         makeCard2(image, title, text, label, link, event)
@@ -183,7 +183,7 @@ def handle_message(event):
 
     if re.search('推薦課程與展覽', event.message.text, re.IGNORECASE):
 
-        image = ['https://i.imgur.com/uM5Xj2W.jpg','https://upload.cc/i1/2018/11/23/YCVQqc.png','https://upload.cc/i1/2018/11/23/o0Qs5y.png']
+        image = ['https://upload.cc/i1/2018/11/23/GATLzw.png','https://upload.cc/i1/2018/11/23/YCVQqc.png','https://upload.cc/i1/2018/11/23/o0Qs5y.png']
         title = ['科技未來展','第二屆-用Python打造自己的股票小秘書','黑心外匯交易員的告白']
         text = ['以生技、醫材、AI為主題的展覽。我覺得最猛的科技有量子電腦、干擾性RNA藥物用於治療近視等等。','教你製作可以開盤前自動寄送符合條件的股票到手機的股票小秘書。','不用一直看盤，不會因為賠錢而影響心情，以身活為重的投資術。每天只要20分鐘，就能得到穩定收入。']
         label = ['影片介紹','課程連結','課程連結']
