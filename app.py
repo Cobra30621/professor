@@ -122,6 +122,38 @@ def makeCard2(image, title, text, label, link, event):
     
     line_bot_api.reply_message(event.reply_token, remessage)         
 
+
+import xlrd
+import os
+
+def makeCard3(table):
+
+    columns = []
+    for i in range(3):
+        carousel = CarouselColumn(
+                    thumbnail_image_url = table.row_values(i)[4],
+                    title = table.row_values(i)[0],
+                    text = table.row_values(i)[1],
+                    actions=[
+                        URITemplateAction(
+                            label = table.row_values(i)[2],
+                            uri = link[3]
+                          )
+                        ]
+                    )
+        columns.append(carousel)
+    
+    remessage = TemplateSendMessage(
+                alt_text='Carousel template',
+                template=CarouselTemplate(columns=columns)
+                )
+    
+    
+    line_bot_api.reply_message(event.reply_token, remessage)         
+
+
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     '''
@@ -169,7 +201,7 @@ def handle_message(event):
 
     if re.search('特殊能力', event.message.text, re.IGNORECASE):
 
-        image = ['https://upload.cc/i1/2018/11/23/GATLzw.png','https://upload.cc/i1/2018/11/23/FZoufH.png','https://i2.bahamut.com.tw/bahaLOGO_1200x630.jpg']
+        image = ['https://upload.cc/i1/2018/11/23/jxYL3P.png','https://upload.cc/i1/2018/11/23/FZoufH.png','https://i2.bahamut.com.tw/bahaLOGO_1200x630.jpg']
         title = ['APCS實作題成績：第三級','扯鈴表演','巴哈姆特寫小說心得文']
         text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','國小為扯鈴社社長，畢業後以校友的身份進行扯鈴教學、表演。','閱讀超過2000本小說，並常於巴哈姆特寫小說推薦文。']
         label = ['成績證明','表演影片','我的小屋']
@@ -196,15 +228,20 @@ def handle_message(event):
 #介紹自己
 
     if re.search('介紹自己', event.message.text, re.IGNORECASE):
-
-        image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
+        filename = "聊天機器人資料.xlsx"
+        filePath = os.path.join(os.getcwd(), filename)
+        data = xlrd.open_workbook(filePath)
+        table = data.sheets()[1] 
+        makeCard3(table)
+       
+        '''image = ['https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg','https://i.imgur.com/uM5Xj2W.jpg']
         title = ['APCS實作題成績：第三級','11','11']
-        text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','','']
+        text = ['本人在「大學程式設計先修檢測」APCS實作題中，拿下三級分。為1246個考生中的前15.6%。','ㄅㄅ','ㄅ']
         label = ['點我','點我','點我']
         link = ['https://www.google.com','https://www.google.com','https://www.google.com']
         
         
-        makeCard2(image, title, text, label, link, event)
+        makeCard2(image, title, text, label, link, event)'''
         return 0 
 
 #科技報橘
